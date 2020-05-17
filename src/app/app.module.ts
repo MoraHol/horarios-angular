@@ -1,12 +1,13 @@
 import { AuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
+import { BrowserModule, Title } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { BrowserModule } from '@angular/platform-browser';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { GoogleLoginProvider } from 'angularx-social-login';
 import { LoginComponent } from './components/login/login.component';
 import { NgModule } from '@angular/core';
+import { SelPeriodComponent } from './components/sel-period/sel-period.component';
 
 const config = new AuthServiceConfig([
   {
@@ -23,7 +24,8 @@ export function provideConfig() {
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    SelPeriodComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +33,7 @@ export function provideConfig() {
     SocialLoginModule
   ],
   providers: [
+    Title,
     {
       provide: AuthServiceConfig,
       useFactory: provideConfig
